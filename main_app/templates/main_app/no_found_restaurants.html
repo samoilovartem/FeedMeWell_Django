@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('https://media.timeout.com/images/104103854/image.jpg');"
+         data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread">Unfortunately, we didn`t find anything that match your choice</h1>
+                <br>
+                <p><a href="{% url 'home' %}" class="btn btn-primary">Try again</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

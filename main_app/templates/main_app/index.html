@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-wrap js-fullheight"
+     style="background-image: url('https://i.pinimg.com/originals/84/cc/f4/84ccf4dcd125ec0ba9bfdf6f01f6efd3.jpg');"
+     data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+             data-scrollax-parent="true">
+            <div class="col-md-6 ftco-animate">
+                <h2 class="subheading">Welcome to FeedMeWell</h2>
+                <h1 class="mb-2">Find the best restaurants in Manila</h1>
+                <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-book ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-lg-6">
+                <form action="{% url 'home' %}" class="appointment-form" method="post">
+                    <h3 class="mb-3">Let`s find restaurants</h3>
+                    <div class="row">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <h5>Your city:</h5>
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                        {{ form.user_city }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <h5>Restaurant`s rating:</h5>
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                        {{ form.restaurant_rating }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h5 align="center">Price category</h5>
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                        {{ form.price_category }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"><h5 align="center">Type of cuisine</h5></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+<!--                                    <h5>Type of cuisine(1):</h5>-->
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                        {{ form.cuisine_choice_list1 }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field">
+<!--                                    <h5>Type of cuisine(2):</h5>-->
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                        {{ form.cuisine_choice_list2 }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Look for restaurants" class="btn btn-primary py-3 px-4">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

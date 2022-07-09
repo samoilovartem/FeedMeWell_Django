@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            {% for item in result %}
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20 rounded"
+                       style="background-image: url('{{ item.photo.images.original.url }}');">
+                    </a>
+                    <div class="text p-4 text-center">
+                        <h3 class="heading"><a href="{{ item.web_url }}" target="_blank">{{ item.name }}</a></h3>
+                        <div class="meta mb-2">
+<!--                            <div><p>{{ item.address }}</p></div>-->
+                        </div>
+                        {% if item.description %}
+                            <p>{{ item.description|truncatewords_html:20|safe }}</p>
+                        {% else %}
+                            <p>Unfortunately, the restaurant didn`t provide any description :(</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!--        Pagination-->
+<!--        <div class="row mt-5">-->
+<!--            <div class="col text-center">-->
+<!--                <div class="block-27">-->
+<!--                    <ul>-->
+<!--                        <li><a href="#">&lt;</a></li>-->
+<!--                        <li class="active"><span>1</span></li>-->
+<!--                        <li><a href="#">2</a></li>-->
+<!--                        <li><a href="#">3</a></li>-->
+<!--                        <li><a href="#">4</a></li>-->
+<!--                        <li><a href="#">5</a></li>-->
+<!--                        <li><a href="#">&gt;</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+    <!--    end of pagination-->
+</section>
+{% endblock %}
+
