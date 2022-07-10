@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+{% block title %}
+{{ title }} | {{ block.super }}
+{% endblock %}
+
 {% block content %}
 <div class="hero-wrap js-fullheight"
-     style="background-image: url('https://i.pinimg.com/originals/84/cc/f4/84ccf4dcd125ec0ba9bfdf6f01f6efd3.jpg');"
+     style="background-image: url('{% static '/images/background_green.jpg' %}');"
      data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
              data-scrollax-parent="true">
             <div class="col-md-6 ftco-animate">
-                <h2 class="subheading">Welcome to FeedMeWell</h2>
                 <h1 class="mb-2">Find the best restaurants in Manila</h1>
-                <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a>
                 </p>
             </div>
         </div>
@@ -24,7 +27,7 @@
         <div class="row justify-content-end">
             <div class="col-lg-6">
                 <form action="{% url 'home' %}" class="appointment-form" method="post">
-                    <h3 class="mb-3">Let`s find restaurants</h3>
+                    <h3 class="mb-3" align="center">Let`s find restaurants:</h3>
                     <div class="row">
                         {% csrf_token %}
                         <div class="col-md-6">
@@ -87,6 +90,7 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
+                                <br>
                                 <input type="submit" value="Look for restaurants" class="btn btn-primary py-3 px-4">
                             </div>
                         </div>
